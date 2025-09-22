@@ -44,10 +44,74 @@
 
 ## Network Traffic Analysis
 
+- look for double extensions to disguise malicious files like "image.jpg.php".
+- Many of the indicators that analysts need to be on the lookout for in log analysis can be applied to network traffic analysis as well.
 
-To be continued... 
+    Unusual HTTP Methods & Request Patterns
+    Suspicious User-Agents & IP Addresses
+    Encoded Payloads
+    Malicious Code or Commands in Request Bodies
+    Unexpected Protocols or Ports
+    Unexpected Resource Usage
+    Web Server Processes Spawning Command Line Tools
 
  
+- What command would you use to locate .php files in the /var/www/ directory?
+    - find /var/www/ -type f -name "*.php"
+- Which Wireshark filter would you use to search specifically for PUT requests?
+    - http.request.method == "PUT"
+ 
+## Investigating For Signs of Compromise on a WordPress site.
+
+- Suspicious activity has been reported, and your goal is to analyze the available logs to identify indicators of web shell usage. 
+
+- Step one is SSH onto our maachine.
+
+ <img width="298" height="36" alt="image" src="https://github.com/user-attachments/assets/97974f27-017c-42ad-a542-63e3ff30134c" />
+<img width="741" height="119" alt="image" src="https://github.com/user-attachments/assets/69a5e97d-3d56-4e66-a9f9-e50cc736975f" />
+
+- So far we are told we hjave been access to the Apache access logs.
+    - I ran this command first
+    ##
+      cat /var/log/apache2/access.log | grep "200"
+
+- Which IP address likely belongs to the attacker?
+     <img width="1249" height="466" alt="image" src="https://github.com/user-attachments/assets/99e48617-60f6-4be4-a11c-17c6c69ac640" />
+     ##
+         203.0.113.66
+- We can also see the attacker uploading the initial file "shadyshell.php" and then it looks like he also is trying to gain persistence by uploading another file from his own machine, as seen executing a "wget" cmd at the bottom.
+
+- What is the first directory that the attacker successfully identifies?
+      <img width="1155" height="168" alt="image" src="https://github.com/user-attachments/assets/5f356e17-fa64-4993-bd60-a32d2f8f88fc" />
+      - /wordpress
+
+- What is the name of the .php file the attacker uses to upload the web shell?
+    ##
+       upload_form.php
+- What is the first command run by the attacker using the newly uploaded web shell?
+   ##
+      whoami
+- After gaining access via the web shell, the attacker uses a command to download a second file onto the server. What is the name of this file?
+  ##
+      linpeas.sh
+
+- The attacker has hidden a secret within the web shell.
+Use cat to investigate the web shell code and find the flag. 
+ <img width="654" height="284" alt="image" src="https://github.com/user-attachments/assets/478bb98a-cdf3-4721-9e27-0cf087402866" />
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
 
 
   
