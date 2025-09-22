@@ -9,7 +9,6 @@ It serves as a personal reference and a portfolio of my cybersecurity learning j
 <img src="https://tryhackme-badges.s3.amazonaws.com/abpollard.png" alt="Your Image Badge" />
 
 
-
 ---
 
 ## 📂 Contents
