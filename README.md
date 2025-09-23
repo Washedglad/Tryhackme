@@ -6,7 +6,7 @@ It serves as a personal reference and a portfolio of my cybersecurity learning j
 
 [![Avery's TryHackMe Profile]([https://www.tryhackme.com/badge/profile/2571039](https://tryhackme.com/p/abpollard))](https://tryhackme.com/p/abpollard))
 
-<img src="https://tryhackme-badges.s3.amazonaws.com/abpollard.png" alt="Your Image Badge" />
+
 
 
 ---
